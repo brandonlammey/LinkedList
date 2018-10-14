@@ -42,24 +42,23 @@ class LinkedList: public ListInterface<T>
 
 		//returns true if the value exists in any node
 		//returns false otherwise
-		bool search(int value) const; 
+		bool search(T value) const; 
 
 
 		/** @throw PrecondViolatedExcep if position < 1 or position > getLength(). */
-		T getEntry(int position) const throw(PrecondViolatedExcep);
-		void setEntry(int position, const ItemType& newEntry) throw(PrecondViolatedExcep); 
+		T getEntry(int position) const throw(PreconditionViolationException);
+		void setEntry(int position, const T& newEntry) throw(PreconditionViolationException); 
 
 		//adds 1 new node to List 
 		//increments size
-		void insertBack(int value);
-		void insertFront(int value);
-		void insertAt(int index, int value); 
+		void insertBack(const T& newEntry);
+		void insertFront(const T& newEntry);
 	
 		//removes 1 node to back or front of the list
 		//decrements size
 		bool removeBack();
 		bool removeFront(); 
-		bool removeAt(int index);
+		bool removeEntry(int position);
 		void clear(); 
 
 		//creates new vector 
