@@ -13,9 +13,7 @@
 
 #include "ListInterface.h"
 #include "Node.h"
-#include "PrecondViolatedExcep.h" 
-
-
+#include "PreconditionViolationException.h" 
 #include <vector>
 
 template<typename T>
@@ -24,13 +22,15 @@ class LinkedList: public ListInterface<T>
 	private:
 		//private memory variables 		
 		Node<T>* m_headPtr;
-		int m_size; 
+		int m_length; 
+
+		//internal use only for getting positions within the Linked List
 		Node<T>* getNodeAt(int position) const; 
 		
 	public: 
 		//constructor and deconstructor 		
 		LinkedList();
-		LinkedList(const LinkedList<ItemType>& aList); 
+		LinkedList(const LinkedList<T>& aList); 
 		~LinkedList();
 		
 		//returns true if list is empty
@@ -38,27 +38,32 @@ class LinkedList: public ListInterface<T>
 		bool isEmpty() const; 
 		
 		//returns size of the linked list
-		int getSize() const; 
+		int getLength() const; 
 
 		//returns true if the value exists in any node
 		//returns false otherwise
 		bool search(T value) const; 
 
+		/** @throw PrecondViolatedExcep if position < 1 or position > getLength(). */
+		//Get entry at selected position
+		//@return: Value of type T in node at selected position
+		T getEntry(int position) const throw(PreconditionViolationException);
 
 		/** @throw PrecondViolatedExcep if position < 1 or position > getLength(). */
-		T getEntry(int position) const throw(PreconditionViolationException);
+		//Set entry at selected position
+		//@return:
 		void setEntry(int position, const T& newEntry) throw(PreconditionViolationException); 
 
-		//adds 1 new node to List 
-		//increments size
-		void insertBack(const T& newEntry);
-		void insertFront(const T& newEntry);
+		//insert node at select position
+		//@return: bool to determine if inserted or not 
+		bool insert(int position, const T& newEntry);
 	
-		//removes 1 node to back or front of the list
-		//decrements size
-		bool removeBack();
-		bool removeFront(); 
-		bool removeEntry(int position);
+		//remove node at select position 
+		//@return: bool to determine if removed or not 
+		bool remove(int position);
+
+		//remove all nodes from list
+		//@return: bool to determine if removed or not 
 		void clear(); 
 
 		//creates new vector 
