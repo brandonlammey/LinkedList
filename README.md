@@ -3,17 +3,17 @@
 This generic templated singly Linked List data structure (unsorted) will create a Linked List object with a head pointer and size. The pointer will point to and keep track of a dynamically allocated link of nodes and be able to perform basic Linked List operations operations: 
 
 * Search
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 * Insert
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 * Remove
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 * Clear 
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 * Get Entry
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 * Set Entry
-** Time Complexity: Best (O(1)) Worst (O(n))
+  * Time Complexity: Best (O(1)) Worst (O(n))
 
 ## Purpose
 
