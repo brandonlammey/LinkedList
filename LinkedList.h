@@ -65,7 +65,7 @@ class LinkedList: public ListInterface<T>
 		//copy contents of list into vector
 		//returns a standard vector with the contents of the list inside
 		//used by test class to varify contents of list 
-		std::vector<int> toVector() const;
+		std::vector<T> toVector() const;
 };
 #include "LinkedList.hpp"
 #endif

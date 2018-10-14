@@ -161,7 +161,22 @@ void LinkedList<T>::clear()
 } 
 
 template<typename T>
-std::vector<int> LinkedList<T>::toVector() const
+std::vector<T> LinkedList<T>::toVector() const
 {
+	std::vector<T> listContents;//creates new vector to hold values
 	
+
+	if(m_front != nullptr)
+	{
+		Node<T>* tempNodePtr = m_headPtr; 
+				
+		for(int i=0; i<m_size; i++)//traverse list and input values into vector
+		{
+			listContents.push_back(tempNodePtr->getValue());
+			tempNodePtr = tempNodePtr->getNext(); 
+		}
+		
+	}
+
+	return(listContents); 
 }
